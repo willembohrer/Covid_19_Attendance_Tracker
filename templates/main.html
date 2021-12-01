@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>RFID ID Tracing</title>
+		
+		<!-- Connections to CSS style sheet and Bootstrap -->
+		<link href="static/style.css" rel="stylesheet" type="text/css">
+		<link href="static/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+	</head>
+	<img src="/static/RFID ID TRACING Logo.PNG" style="width:250px;height:62px;" alt="" class="center"/>
+	<body>
+		<br>
+		<h3>Class Setup:</h3>
+		<br>
+		
+		<!-- Form tag to gather post data from web page used in class creation -->
+		
+		<form action="/createClass" method="post">
+			<label for="lblProfessorEmail">Professor Email:</label>
+			<input type="text" name="txtProfessorEmail" id="txtProfessorEmail"></input>
+			<br>
+			<label for="lblClassName">Class Name:</label>
+			<input type="text" name="txtClassName" id="txtClassName"></input>
+			<br>
+			<label for="textfield4">Class Number:</label>
+			<input type="text" name="txtClassNumber" id="txtClassNumber"></input>
+			<br>
+			<label for="textfield5">Class Section Number:&nbsp;</label>
+			<input type="text" name="txtClassSectionNumber" id="txtClassSectionNumber"></input>
+			<br>
+			<label for="lblStartTime">Start Time:</label>
+			<input type="time" name="tmStartTime" id="tmStartTime">
+			<label for="lblEndTime">End Time:</label>
+			<input type="time" name="tmEndTime" id="tmEndTime">
+			<br>
+			<label>Class Day Selector:</label>
+			<input type="checkbox" name="check" id = "test" value="Monday" class="weekday" />
+			<label for="weekday-mon">M</label>
+			<input type="checkbox" name="check" value="Tuesday" class="weekday" />
+			<label for="weekday-tue">T</label>
+			<input type="checkbox" name="check" value="Wednesday" class="weekday" />
+			<label for="weekday-wed">W</label>
+			<input type="checkbox" name="check" value="Thursday" class="weekday" />
+			<label for="weekday-thu">T</label>
+			<input type="checkbox" name="check" value="Friday" class="weekday" />
+			<label for="weekday-fri">F</label>
+			<br>
+			<label>Building - Room:</label>
+			<SELECT name="building">
+				{% for building in buildinglist %}
+				<OPTION value={{building.Room_ID}}>{{building.Name}}</OPTION>
+				{% endfor %}
+			</SELECT>
+			<br>
+			<input type="submit" name="btnAddClass" id="btnAddClass" value="Add Class">
+		</form>
+</html>
